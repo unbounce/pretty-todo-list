@@ -1,5 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap');
+@import '_variables.scss';
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: $light-grey;
+  font-size: 1.6rem;
+}
+
+header {
+  background-size: cover;
+  background-image: url('./assets/images/bg-desktop-light.jpg');
+  height: 30rem;
+}
+
+h1 {
+  text-transform: uppercase;
+  color: $white;
+  padding: 10rem 0;
+  font-size: 5rem;
+  letter-spacing: 10px;
+}
+
+.container {
+  width: 40%;
+  margin: 0 auto;
+}
+
+main {
+  margin-top: -10rem;
+}
+
+form {
+  input {
+    border: none;
+    padding: 2rem 1rem;
+    font-size: 1.8rem;
+    border-radius: 5px;
+    &:active, &:focus {
+      border-style: none;
+    }
+  }
 }

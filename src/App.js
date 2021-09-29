@@ -5,8 +5,18 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <h1>Todo</h1> 
+        <div className="container">
+          <h1>Todo</h1> 
+        </div>
+        
       </header>
+      <main>
+          <div className="container">
+          <form>
+            <input type="text" placeholder="Create a new todo..."/>
+          </form>
+          </div>
+      </main>
     </div>
   );
 }
