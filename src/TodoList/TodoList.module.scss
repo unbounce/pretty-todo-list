@@ -8,6 +8,7 @@
     &__clear-all {
       cursor: pointer;
     }
+
     &__controls {
       display: flex;
       justify-content: space-between;
@@ -28,6 +29,7 @@
         font-weight: 800;
         flex: 0 0 40%;
         justify-content: space-between;
+        display: flex;
         span {
           display: inline-block;
         }
