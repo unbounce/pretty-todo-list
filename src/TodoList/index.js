@@ -15,7 +15,7 @@ const TodoList = () => {
     return (
         <ul className={styles["list"]}>
             {checklist}
-          </ul>
+        </ul>
     )
 }
 
