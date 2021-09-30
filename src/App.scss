@@ -10,23 +10,33 @@ html {
 }
 body {
   font-family: 'Josefin Sans', sans-serif;
-  background-color: $light-grey;
+  background-color: $grey-1;
   font-size: 1.6rem;
 }
 
-header {
+.header {
   background-size: cover;
   background-image: url('./assets/images/bg-desktop-light.jpg');
   height: 30rem;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      text-transform: uppercase;
+      color: $white;
+      padding: 10rem 0;
+      font-size: 5rem;
+      letter-spacing: 10px;
+    }
+  }
+
+  
 }
 
-h1 {
-  text-transform: uppercase;
-  color: $white;
-  padding: 10rem 0;
-  font-size: 5rem;
-  letter-spacing: 10px;
-}
+
 
 .container {
   width: 40%;
@@ -38,13 +48,23 @@ main {
 }
 
 form {
+  margin-bottom: 2rem;
+  
   input {
+    width: 100%;
     border: none;
     padding: 2rem 1rem;
     font-size: 1.8rem;
     border-radius: 5px;
+    font-family: inherit;
+    color: $grey-3;
+
+    &::placeholder {
+      color: $grey-3;
+    }
     &:active, &:focus {
       border-style: none;
+      outline: none;
     }
   }
 }
