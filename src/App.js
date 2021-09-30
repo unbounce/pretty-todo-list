@@ -16,8 +16,8 @@ function App() {
             <form>
               <input type="text" placeholder="Create a new todo..."/>
             </form>
-
             <TodoList></TodoList>
+            <div className="center-text description">Drag and drop to reorder list</div>
           </div>
       </main>
     </div>

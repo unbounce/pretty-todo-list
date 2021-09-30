@@ -15,6 +15,15 @@ const TodoList = () => {
     return (
         <ul className={styles["list"]}>
             {checklist}
+            <li className={styles["list__controls"]}>
+                <div className={styles["list__items-left"]}>5 items left</div>
+                <div className={styles["list__filters"]}>
+                    <p>All</p>
+                    <p className={styles["list__filters-active"]}>Active</p>
+                    <p>Completed</p>
+                </div>
+                <div className={styles["list__clear-all"]}>Clear Completed</div>
+            </li>
         </ul>
     )
 }
