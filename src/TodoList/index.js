@@ -2,15 +2,24 @@ import React, {useState} from "react";
 import TodoListItem from '../TodoListItem';
 import styles from './TodoList.module.scss';
 
-const TodoList = ({listOfItems, handleUpdateCompleted}) => {
+const TodoList = ({listOfItems, handleUpdateCompleted, handleClearCompleted, handleDeleteItem}) => {
 
     const getNumberOfItemsLeft = () => {
         return listOfItems.filter(item => !item.completed).length;
     }
 
     const checklist = listOfItems.map((todoItem, index) => {
-        console.log(todoItem)
-        return <TodoListItem key={index} onChange={handleUpdateCompleted} index={index} item={todoItem.description} isCompleted={todoItem.completed}></TodoListItem>
+        
+        return (
+            <TodoListItem 
+                    item={todoItem.description} 
+                    isCompleted={todoItem.completed} 
+                    onChange={handleUpdateCompleted} 
+                    onDelete={handleDeleteItem}
+                    index={index} 
+                    key={index} >
+            </TodoListItem>
+        )
     })
 
     return (
@@ -23,7 +32,7 @@ const TodoList = ({listOfItems, handleUpdateCompleted}) => {
                     <p className={styles["list__filters-active"]}>Active</p>
                     <p>Completed</p>
                 </div>
-                <div className={styles["list__clear-all"]}>Clear Completed</div>
+                <div onClick={handleClearCompleted} className={styles["list__clear-all"]}>Clear Completed</div>
             </li>
         </ul>
     )

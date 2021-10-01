@@ -12,22 +12,33 @@ function App() {
 
   const [newTodoItem, setNewTodoItem] = useState('')
   const handleUpdateCompleted = (index) => {
-        
+        console.log("Updating", index)
     const newList = listOfItems;
     newList[index].completed = !newList[index].completed;
-    
     setListOfItems(newList);
   }
+
   const handleAddNewItem = () => {
     const newItem = {description: newTodoItem, completed: false};
-    const newList = [newItem].concat(listOfItems);
-    setListOfItems(newList);
+    
+    setListOfItems([newItem, ...listOfItems]);
   }
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     handleAddNewItem();
     setNewTodoItem('');
+  }
+
+  const handleClearCompleted = (filterType) => {
+    const newList = listOfItems.filter((item) => !item.completed);
+    setListOfItems(newList);
+  }
+
+  const handleDeleteItem = (index) => { 
+    console.log(index)
+    const newList = listOfItems.filter((item, i) => i !== index);
+    setListOfItems(newList);
   }
   return (
     <div className="App">
@@ -43,7 +54,12 @@ function App() {
             <form onSubmit={(e) => handleFormSubmit(e)}>
               <input onChange={(e) => setNewTodoItem(e.target.value)} type="text" value={newTodoItem} placeholder="Create a new todo..."/>
             </form>
-            <TodoList listOfItems={listOfItems} handleUpdateCompleted={handleUpdateCompleted}></TodoList>
+            <TodoList 
+              listOfItems={listOfItems} 
+              handleUpdateCompleted={handleUpdateCompleted}
+              handleClearCompleted={handleClearCompleted}
+              handleDeleteItem={handleDeleteItem}
+            ></TodoList>
             <div className="center-text description">Drag and drop to reorder list</div>
           </div>
       </main>
