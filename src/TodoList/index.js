@@ -2,12 +2,29 @@ import React, {useState} from "react";
 import TodoListItem from '../TodoListItem';
 import styles from './TodoList.module.scss';
 
-const TodoList = ({listOfItems, handleUpdateCompleted, handleClearCompleted, handleDeleteItem}) => {
+const TodoList = ({listOfItems, handleUpdateCompleted, handleClearCompleted, handleDeleteItem, handleFilterClick}) => {
 
+    const [filter, setFilter] = useState('all'); 
     const getNumberOfItemsLeft = () => {
         return listOfItems.filter(item => !item.completed).length;
     }
-
+    
+    const handleFilterClick = (filter) =>{
+        console.log('filter', filter)
+        switch(filter) {
+            case 'all':
+                setFilter('all')
+                break;
+            case 'active':
+                setFilter('active')
+                break;
+            case 'completed':
+                setFilter('completed')
+                break;
+            default:
+                setFilter('all')
+          }
+      }
     const checklist = listOfItems.map((todoItem, index) => {
         
         return (
@@ -28,11 +45,11 @@ const TodoList = ({listOfItems, handleUpdateCompleted, handleClearCompleted, han
             <li className={styles["list__controls"]}>
                 <div className={styles["list__items-left"]}>{getNumberOfItemsLeft()} items left</div>
                 <div className={styles["list__filters"]}>
-                    <p>All</p>
-                    <p className={styles["list__filters-active"]}>Active</p>
-                    <p>Completed</p>
+                    <p onClick={() => handleFilterClick('all')}>All</p>
+                    <p onClick={() => handleFilterClick('active')} className={styles["list__filters-active"]}>Active</p>
+                    <p onClick={() => handleFilterClick('completed')}>Completed</p>
                 </div>
-                <div onClick={handleClearCompleted} className={styles["list__clear-all"]}>Clear Completed</div>
+                <div onClick={handleClearCompleted} className={styles["list__clear-completed"]}>Clear Completed</div>
             </li>
         </ul>
     )

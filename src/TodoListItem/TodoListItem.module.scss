@@ -60,6 +60,10 @@ li.list-item {
 
     &:hover {
         cursor: pointer;
+
+        input[type="checkbox"] {
+            border: solid linear-gradient(135deg, #55DDFF 0%, #C058F3 100%) 1px;
+        }
     }
 
     &:hover .cross-icon {

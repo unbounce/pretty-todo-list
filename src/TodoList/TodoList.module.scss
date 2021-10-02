@@ -9,6 +9,13 @@
       cursor: pointer;
     }
 
+    &__clear-completed {
+      cursor: pointer;
+      &:hover {
+        color: $grey-4;
+      }
+    }
+
     &__controls {
       display: flex;
       justify-content: space-between;
@@ -23,15 +30,20 @@
       align-items: center;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
-
+      
       .list__filters {
         cursor: pointer;
         font-weight: 800;
         flex: 0 0 40%;
         justify-content: space-between;
         display: flex;
+
         span {
           display: inline-block;
+        }
+
+        :hover {
+          color: $grey-4;
         }
         &-active {
           color: $blue-1;
@@ -40,4 +52,20 @@
     }
 
 
+  }
+
+  @media only screen and (max-width: 600px) {
+    .list {
+      &__clear-completed, &__items-left {
+        display: none;
+      }
+
+      &__controls {
+        
+        .list__filters {
+          flex: 0 0 50%;
+          margin: 0 auto;
+        }
+      }
+    }
   }

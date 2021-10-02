@@ -75,3 +75,17 @@ form {
   color: $grey-3;
   margin: 2rem 0;
 }
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

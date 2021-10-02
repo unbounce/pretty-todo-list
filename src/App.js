@@ -10,7 +10,8 @@ function App() {
     {description: 'Go for a jog', completed: false}
   ])
 
-  const [newTodoItem, setNewTodoItem] = useState('')
+  const [newTodoItem, setNewTodoItem] = useState('');
+
   const handleUpdateCompleted = (index) => {
         console.log("Updating", index)
     const newList = listOfItems;
@@ -20,7 +21,6 @@ function App() {
 
   const handleAddNewItem = () => {
     const newItem = {description: newTodoItem, completed: false};
-    
     setListOfItems([newItem, ...listOfItems]);
   }
 
@@ -40,6 +40,8 @@ function App() {
     const newList = listOfItems.filter((item, i) => i !== index);
     setListOfItems(newList);
   }
+
+
   return (
     <div className="App">
       <header className="header">
