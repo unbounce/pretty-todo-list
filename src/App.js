@@ -1,4 +1,5 @@
 import moon from './icon-moon.svg';
+import sun from './icon-sun.svg'
 import './App.scss';
 import TodoList from './TodoList';
 import { useState } from 'react';
@@ -12,6 +13,12 @@ function App() {
 
   const [newTodoItem, setNewTodoItem] = useState('');
 
+  const [theme, setTheme] = useState('light');
+
+  const changeTheme = () => {
+    let newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  }
   const handleUpdateCompleted = (index) => {
         console.log("Updating", index)
     const newList = listOfItems;
@@ -43,24 +50,25 @@ function App() {
 
 
   return (
-    <div className="App">
-      <header className="header">
+    <div className={theme === 'light' ? "body-light" : "body-dark"}>
+      <header className={theme === 'light' ? "header" : "header header-dark"}>
         <div className="container header__container">
           <h1>Todo</h1> 
-          <img src={moon} alt="moon"></img>
+          <img onClick={() => changeTheme()} src={theme === 'dark' ? sun : moon} alt="moon" className="ui-theme"></img>
         </div>
         
       </header>
       <main>
           <div className="container">
             <form onSubmit={(e) => handleFormSubmit(e)}>
-              <input onChange={(e) => setNewTodoItem(e.target.value)} type="text" value={newTodoItem} placeholder="Create a new todo..."/>
+              <input className={theme === 'light' ? '' : 'form-dark'} onChange={(e) => setNewTodoItem(e.target.value)} type="text" value={newTodoItem} placeholder="Create a new todo..."/>
             </form>
             <TodoList 
               listOfItems={listOfItems} 
               handleUpdateCompleted={handleUpdateCompleted}
               handleClearCompleted={handleClearCompleted}
               handleDeleteItem={handleDeleteItem}
+              theme={theme}
             ></TodoList>
             <div className="center-text description">Drag and drop to reorder list</div>
           </div>

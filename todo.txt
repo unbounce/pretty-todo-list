@@ -1,0 +1,4 @@
+1. Change color theme
+2. Update complete status
+3. Active color on filter controls
+4. Drag and drop

@@ -6,3 +6,24 @@ $grey-4: #494C6B;
 $grey-5: #D1D2DA;
 $white-2: #E3E4F1;
 $blue-1: #3A7CFD;
+
+//dark theme colors
+$blue-2: #393A4B;
+$blue-3: #25273D;
+$blue-4: #C8CBE7;
+
+@mixin list-row-styling {
+    display: flex;
+      justify-content: space-between;
+      width: 100%;
+      border: none;
+      padding: 2rem 1rem;
+      font-size: 1.4rem;
+      font-family: inherit;
+      color: $grey-3;
+      background-color: $white;
+      display: flex;
+      align-items: center;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+}

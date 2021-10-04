@@ -8,10 +8,12 @@
 html {
   font-size: 62.5%;
 }
+
 body {
   font-family: 'Josefin Sans', sans-serif;
   background-color: $grey-1;
   font-size: 1.6rem;
+  height: 100vh;
 }
 
 .header {
@@ -36,9 +38,13 @@ body {
   
 }
 
+.header-dark {
+  background-image: url('./assets/images/bg-desktop-dark.jpg');
+}
 .container {
   width: 40%;
   margin: 0 auto;
+  // height: 100vh;
 }
 
 main {
@@ -67,6 +73,10 @@ form {
   }
 }
 
+.form-dark {
+  background-color: $blue-3;
+}
+
 .center-text {
   text-align: center;
 }
@@ -76,6 +86,14 @@ form {
   margin: 2rem 0;
 }
 
+.ui-theme {
+  cursor: pointer;
+}
+
+.body-dark {
+  background-color: $blue-2;
+  height: 100vh;
+}
 @media only screen and (max-width: 1200px) {
   .container {
     width: 60%;

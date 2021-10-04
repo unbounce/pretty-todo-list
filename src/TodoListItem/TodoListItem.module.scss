@@ -29,7 +29,7 @@ input[type="checkbox"] {
     }
 }
 
-li.list-item {
+li.list-item, li.list-item-dark {
     width: 100%;
     border: none;
     padding: 2rem 1.6rem;
@@ -69,4 +69,9 @@ li.list-item {
     &:hover .cross-icon {
         display: initial;
     }
+}
+
+li.list-item-dark {
+    background-color: $blue-3;
+    color: $blue-4;
 }
